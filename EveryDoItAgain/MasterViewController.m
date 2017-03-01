@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "AddToDoViewController.h"
 
 
 @interface MasterViewController ()
@@ -41,6 +42,7 @@
 
 - (void)insertNewObject:(id)sender {
     
+    [self performSegueWithIdentifier:@"addToDo" sender:self];
 
     
 }
@@ -57,7 +59,14 @@
         [controller setDetailItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
+        
+    }else if ([[segue identifier] isEqualToString:@"addToDO"]){
+        
+        AddToDoViewController *addVC = segue.destinationViewController;
+        addVC.nsManagedObjectContext = self.managedObjectContext;
+        
     }
+    
 }
 
 
@@ -106,6 +115,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell withToDo:(ToDo *)toDo {
     
+    cell.textLabel.text = toDo.title;
     
     
 }
@@ -119,11 +129,11 @@
         return _fetchedResultsController;
     }
     
-    NSFetchRequest<ToDo *> *fetchRequest = ToDo.fetchRequest;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"ToDo"];
 
     [fetchRequest setFetchBatchSize:20];
 
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:NO];
 
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
