@@ -15,8 +15,6 @@
 		5D19AEB81E6756E6002479F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D19AEB61E6756E6002479F7 /* Main.storyboard */; };
 		5D19AEBA1E6756E6002479F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D19AEB91E6756E6002479F7 /* Assets.xcassets */; };
 		5D19AEBD1E6756E6002479F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D19AEBB1E6756E6002479F7 /* LaunchScreen.storyboard */; };
-		5D19AED01E6759EB002479F7 /* ToDo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D19AECD1E6759EB002479F7 /* ToDo+CoreDataClass.m */; };
-		5D19AED11E6759EB002479F7 /* ToDo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D19AECF1E6759EB002479F7 /* ToDo+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,10 +31,6 @@
 		5D19AEB91E6756E6002479F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D19AEBC1E6756E6002479F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D19AEBE1E6756E6002479F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5D19AECC1E6759EB002479F7 /* ToDo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ToDo+CoreDataClass.h"; sourceTree = "<group>"; };
-		5D19AECD1E6759EB002479F7 /* ToDo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ToDo+CoreDataClass.m"; sourceTree = "<group>"; };
-		5D19AECE1E6759EB002479F7 /* ToDo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ToDo+CoreDataProperties.h"; sourceTree = "<group>"; };
-		5D19AECF1E6759EB002479F7 /* ToDo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ToDo+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +63,6 @@
 		5D19AEA61E6756E6002479F7 /* EveryDoItAgain */ = {
 			isa = PBXGroup;
 			children = (
-				5D19AECC1E6759EB002479F7 /* ToDo+CoreDataClass.h */,
-				5D19AECD1E6759EB002479F7 /* ToDo+CoreDataClass.m */,
-				5D19AECE1E6759EB002479F7 /* ToDo+CoreDataProperties.h */,
-				5D19AECF1E6759EB002479F7 /* ToDo+CoreDataProperties.m */,
 				5D19AEAA1E6756E6002479F7 /* AppDelegate.h */,
 				5D19AEAB1E6756E6002479F7 /* AppDelegate.m */,
 				5D19AEB01E6756E6002479F7 /* MasterViewController.h */,
@@ -174,8 +164,6 @@
 				5D19AEAC1E6756E6002479F7 /* AppDelegate.m in Sources */,
 				5D19AEA91E6756E6002479F7 /* main.m in Sources */,
 				5D19AEAF1E6756E6002479F7 /* EveryDoItAgain.xcdatamodeld in Sources */,
-				5D19AED11E6759EB002479F7 /* ToDo+CoreDataProperties.m in Sources */,
-				5D19AED01E6759EB002479F7 /* ToDo+CoreDataClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
