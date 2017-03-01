@@ -19,16 +19,27 @@
 
 @implementation AddToDoViewController
 
+- (void) viewDidLoad
+{
+    [super viewDidLoad];
+    
+}
+
 - (IBAction)doneClicked:(id)sender {
     
-    NSEntityDescription *toDoEntity = [NSEntityDescription entityForName:@"ToDo" inManagedObjectContext:self.nsManagedObjectContext];
-    NSManagedObject *toDoObject = [[NSManagedObject alloc] initWithEntity:toDoEntity insertIntoManagedObjectContext:self.nsManagedObjectContext];
+    if (self.managedObjectContext) {
+        
+        NSEntityDescription *toDoEntity = [NSEntityDescription entityForName:@"ToDo" inManagedObjectContext:self.managedObjectContext];
+        NSManagedObject *toDoObject = [[NSManagedObject alloc] initWithEntity:toDoEntity insertIntoManagedObjectContext:self.managedObjectContext];
+        
+        
+        [toDoObject setValue:self.titleTF.text forKey:@"title"];
+        [toDoObject setValue:self.descriptionTV.text forKey:@"toDoDescription"];
+        
+        
+    }
     
-    [toDoObject setValue:self.priorityNumberTF forKey:@"priorityNumber"];
-    [toDoObject setValue:self.titleTF.text forKey:@"title"];
-    [toDoObject setValue:self.descriptionTV forKey:@"toDoDescription"];
-    
-    
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

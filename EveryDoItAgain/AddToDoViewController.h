@@ -11,6 +11,6 @@
 
 @interface AddToDoViewController : UIViewController
 
-@property (nonatomic, strong) NSManagedObjectContext *nsManagedObjectContext;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end

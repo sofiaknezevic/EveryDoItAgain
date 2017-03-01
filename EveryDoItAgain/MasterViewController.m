@@ -8,7 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
-#import "AddToDoViewController.h"
+
 
 
 @interface MasterViewController ()
@@ -36,11 +36,11 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
-- (void)insertNewObject:(id)sender {
+- (void)insertNewObject:(id)sender
+{
     
     [self performSegueWithIdentifier:@"addToDo" sender:self];
 
@@ -60,12 +60,16 @@
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
         
-    }else if ([[segue identifier] isEqualToString:@"addToDO"]){
+    }else if ([[segue identifier] isEqualToString:@"addToDo"]){
         
-        AddToDoViewController *addVC = segue.destinationViewController;
-        addVC.nsManagedObjectContext = self.managedObjectContext;
+        self.addVC = segue.destinationViewController;
+        
+        [[segue destinationViewController]setManagedObjectContext:self.managedObjectContext];
+        
+        [self.tableView reloadData];
         
     }
+    
     
 }
 
@@ -131,11 +135,8 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"ToDo"];
 
-    [fetchRequest setFetchBatchSize:20];
 
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:NO];
-
-    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]];
     
     NSEntityDescription *toDoEntity = [NSEntityDescription entityForName:@"ToDo" inManagedObjectContext:self.managedObjectContext];
     
@@ -143,6 +144,7 @@
 
     
     NSFetchedResultsController<ToDo *> *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
     aFetchedResultsController.delegate = self;
     
     self.fetchedResultsController = aFetchedResultsController;
